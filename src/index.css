@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.checkin {
+  height: 500px;
+}
+.checkbox_checkin {
+  -webkit-transform: scale(20);
+  -o-transform: scale(2);
+  transform: scale(20);
+  padding: 10px;
+  margin: auto;
+}

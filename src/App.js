@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Table from './page/tables';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from './page/Login';
+import TimeKeep from './page/TimeKeep';
+import Checkin from './page/Checkin';
+import DetailTimeKeep from './page/DetailTImeKeep';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/staffs" element={<Table />} />
+          <Route path='/timekeep' element={<TimeKeep />} />
+          <Route path='/checkin' element={<Checkin />} />
+          <Route path='/detailTimeKeep' element={<DetailTimeKeep />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
