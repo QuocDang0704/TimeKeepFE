@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Menu = () => {
-    return <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+  return <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div className="sidenav-header">
       <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav" />
       <a className="navbar-brand m-0" href="#" target="_blank">
@@ -29,13 +29,21 @@ const Menu = () => {
         <li className="nav-item">
           <Link className="nav-link text-white " to={"/timekeep"} >
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i className="material-icons opacity-10">notifications</i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban" viewBox="0 0 16 16">
+                <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h11zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11z" />
+                <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3z" />
+              </svg>
             </div>
             <span className="nav-link-text ms-1">Manage time keep</span>
           </Link>
         </li>
-        <li className="nav-item mt-3">
-          <h6 className="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+        <li className="nav-item">
+          <Link className="nav-link text-white " to={"/approve"} >
+            <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i className="material-icons opacity-10">notifications</i>
+            </div>
+            <span className="nav-link-text ms-1">Approve</span>
+          </Link>
         </li>
         <li className="nav-item">
           <a className="nav-link text-white " href="../pages/profile.html">

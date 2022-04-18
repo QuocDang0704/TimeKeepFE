@@ -51,10 +51,10 @@ const Checkin = () => {
             }
             axios.post(`http://localhost:8080/apiTimeKeeps/checkin-checkout`, paramCheckin).then(resp => {
                 if (resp?.status === 200) {
-                    toast('Check in success');
+                    toast.success('Check in success');
                     setIsCheckin(true);
                 }
-            }).catch(err => console.log('Check in failse'))
+            }).catch(err => toast.error('Check in failse'))
         } else {
             const paramCheckout = {
                 idStaff: idStaff,
@@ -64,10 +64,10 @@ const Checkin = () => {
                 axios.post(`http://localhost:8080/apiTimeKeeps/checkin-checkout`, paramCheckout).then(resp => {
                     if (resp?.status === 200) {
                         setIsCheckin(true);
-                        toast('Check out success');
+                        toast.success('Check out success');
                         setCheckout(true);
                     }
-                }).catch(err => console.log('Check in failse'))
+                }).catch(err => toast.error('Check in failse'))
             }
             
         }

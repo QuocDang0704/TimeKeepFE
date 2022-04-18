@@ -88,3 +88,6 @@ ul.pagination li a.active {
 .mt-5 {
   margin-top: 5px;
 }
+.w-30rem {
+  width: 30rem !important;
+}

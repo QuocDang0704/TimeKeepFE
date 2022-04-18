@@ -78,12 +78,12 @@ const DetailTimeKeep = () => {
         }
         axios.post(`http://localhost:8080/permit/create`, param).then(resp => {
             if (resp?.status === 200);
-            toast('Create Permit Success');
+            toast.success('Create Permit Success');
             setReason('');
             setIdTimeKeepCurr('');
             setFromDate('');
             setToDate('');
-        }).catch(err => toast('Create Permit Failse'))
+        }).catch(err => toast.error('Create Permit Failse'))
     }
     const btnDisabled = () => {
         if (!reason || reason.trim() === '') {

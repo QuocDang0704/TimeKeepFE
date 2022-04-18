@@ -281,10 +281,10 @@ const Table = () => {
     }
     axios.put(`http://localhost:8080/apiStaffs/staffs`, param).then(resp => {
       if (resp?.status === 200) {
-        toast('Update success');
+        toast.success('Update success');
         setSuccess(success + 1);
       }
-    }).catch((error) => toast('Update false'))
+    }).catch((error) => toast.error('Update false'))
   }
   const handleAddConfirm = () => {
     const param = {
@@ -297,7 +297,7 @@ const Table = () => {
     }
     axios.post(`http://localhost:8080/apiStaffs/staff`, param).then(resp => {
       if (resp?.status === 200) {
-        toast('Add Staff success');
+        toast.success('Add Staff success');
         setSuccess(success + 1);
         setNameAdd('');
         setGenderAdd(false);
@@ -305,7 +305,7 @@ const Table = () => {
         setEmailAdd('');
         setAddressAdd('');
       }
-    }).catch((error) => toast('Add Staff false'))
+    }).catch((error) => toast.error('Add Staff false'))
   }
   const _renderModalUpdate = () => {
     return <div className="modal fade" id="updateModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

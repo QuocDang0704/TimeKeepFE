@@ -6,6 +6,7 @@ import Login from './page/Login';
 import TimeKeep from './page/TimeKeep';
 import Checkin from './page/Checkin';
 import DetailTimeKeep from './page/DetailTImeKeep';
+import Approve from './page/Approve';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/timekeep' element={<TimeKeep />} />
           <Route path='/checkin' element={<Checkin />} />
           <Route path='/detailTimeKeep' element={<DetailTimeKeep />} />
+          <Route path='/approve' element={<Approve />} />
         </Routes>
       </BrowserRouter>
     </div>
