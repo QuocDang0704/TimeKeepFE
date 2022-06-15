@@ -27,7 +27,7 @@ const DetailTimeKeep = () => {
         }
         setIdStaff(idStaffSess);
         if (!monthSearch || monthSearch.trim() === '') {
-            axios.get(`http://localhost:8080/apiTimeKeeps/timekeep/history?idStaff=${Number(idStaffSess)}`).then(resp => {
+            axios.get(`http://localhost:8080/api/apiTimeKeeps/timekeep/history?idStaff=${Number(idStaffSess)}`).then(resp => {
                 if (resp?.status === 200) {
                     const tmpData = resp?.data;
                     if (tmpData) {
@@ -41,7 +41,7 @@ const DetailTimeKeep = () => {
             });
         }
         else {
-            axios.get(`http://localhost:8080/apiTimeKeeps/timekeep/history?idStaff=${Number(idStaffSess)}&&&month=${Number(monthSearch)}`).then(resp => {
+            axios.get(`http://localhost:8080/api/apiTimeKeeps/timekeep/history?idStaff=${Number(idStaffSess)}&&&month=${Number(monthSearch)}`).then(resp => {
                 if (resp?.status === 200) {
                     const tmpData = resp?.data;
                     if (tmpData) {
@@ -76,7 +76,7 @@ const DetailTimeKeep = () => {
             timeIn: tmpFromDate,
             timeOut: tmpToDate
         }
-        axios.post(`http://localhost:8080/permit/create`, param).then(resp => {
+        axios.post(`http://localhost:8080/api/permit/create`, param).then(resp => {
             if (resp?.status === 200);
             toast.success('Create Permit Success');
             setReason('');

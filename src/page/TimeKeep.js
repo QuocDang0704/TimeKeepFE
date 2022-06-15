@@ -23,7 +23,7 @@ const TimeKeep = () => {
             window.location = '/';
             return;
         }
-        axios.get(`http://localhost:8080/apiTimeKeeps/timekeep`).then(resp => {
+        axios.get(`http://localhost:8080/api/apiTimeKeeps/timekeep`).then(resp => {
             if (resp?.status === 200) {
                 const tmpLstTimeKeep = resp?.data ? resp.data : [];
                 const tmpLstTimeKeepDis = handleShowDataTimeKeepCurr(pageCurr, pageSize, tmpLstTimeKeep);

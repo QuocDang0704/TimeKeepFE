@@ -55,12 +55,12 @@ const Table = () => {
       return;
     }
     if (success === 0) {
-      axios.get(`http://localhost:8080/apiPositions/positions`).then(resp => {
+      axios.get(`http://localhost:8080/api/apiPositions/positions`).then(resp => {
         const tmpPosition = resp?.data ? resp?.data : [];
         setLstPosition(tmpPosition);
       }).catch(err => console.log('error get position'))
     }
-    axios.get(`http://localhost:8080/apiStaffs/staffs`).then(resp => {
+    axios.get(`http://localhost:8080/api/apiStaffs/staffs`).then(resp => {
       const tmpLstStaff = resp?.data ? resp?.data : [];
       const lstStaffDis = handleShowDataStaffCurr(pageCurr, pageSize, tmpLstStaff);
       setListStaffDis(lstStaffDis);
@@ -195,7 +195,7 @@ const Table = () => {
     setIsInvalidEmail(false);
     setIsErrorBlankEmail(false);
     //check email exist
-    axios.get(`http://localhost:8080/apiStaffs/staffs/findby${value}`).then(resp => {
+    axios.get(`http://localhost:8080/api/apiStaffs/staffs/findby${value}`).then(resp => {
       if (resp?.data != '') {
         setIsExistEmail(true);
         return;
@@ -220,7 +220,7 @@ const Table = () => {
     }
     setIsInvalidEmailAdd(false);
     setIsErrorBlankEmailAdd(false);
-    axios.get(`http://localhost:8080/apiStaffs/staffs/findby${value}`).then(resp => {
+    axios.get(`http://localhost:8080/api/apiStaffs/staffs/findby${value}`).then(resp => {
       console.log(191, resp);
       if (resp?.data != '') {
         setIsInsertExistEmail(true);
@@ -279,7 +279,7 @@ const Table = () => {
       email: emailUpdate,
       adress: addressUpdate
     }
-    axios.put(`http://localhost:8080/apiStaffs/staffs`, param).then(resp => {
+    axios.put(`http://localhost:8080/api/apiStaffs/staffs`, param).then(resp => {
       if (resp?.status === 200) {
         toast.success('Update success');
         setSuccess(success + 1);
@@ -295,7 +295,7 @@ const Table = () => {
       email: emailAdd,
       adress: addressAdd
     }
-    axios.post(`http://localhost:8080/apiStaffs/staff`, param).then(resp => {
+    axios.post(`http://localhost:8080/api/apiStaffs/staff`, param).then(resp => {
       if (resp?.status === 200) {
         toast.success('Add Staff success');
         setSuccess(success + 1);
@@ -390,7 +390,7 @@ const Table = () => {
   }
 
   const handleDeteleStaff = () => {
-    axios.delete(`http://localhost:8080/apiStaffs/staffs/delete?idStaff=${idDelete}`, '').then(resp => {
+    axios.delete(`http://localhost:8080/api/apiStaffs/staffs/delete?idStaff=${idDelete}`, '').then(resp => {
       if (resp?.status === 200) {
         toast("Delete success");
         setSuccess(success + 1);

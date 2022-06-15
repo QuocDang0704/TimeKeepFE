@@ -22,7 +22,7 @@ const Checkin = () => {
             idStaff: Number(idStaffSess),
             month: month
           }
-        axios.post(`http://localhost:8080/apiTimeKeeps/timekeep/test`, param).then(resp => {
+        axios.post(`http://localhost:8080/api/apiTimeKeeps/timekeep/test`, param).then(resp => {
             if (resp?.status === 204) {
                 setIsChecked(false);
             }
@@ -49,7 +49,7 @@ const Checkin = () => {
                 idStaff: idStaff,
                 status: true
             }
-            axios.post(`http://localhost:8080/apiTimeKeeps/checkin-checkout`, paramCheckin).then(resp => {
+            axios.post(`http://localhost:8080/api/apiTimeKeeps/checkin-checkout`, paramCheckin).then(resp => {
                 if (resp?.status === 200) {
                     toast.success('Check in success');
                     setIsCheckin(true);
@@ -61,7 +61,7 @@ const Checkin = () => {
                 status: false
             }
             if (isCheckin) {
-                axios.post(`http://localhost:8080/apiTimeKeeps/checkin-checkout`, paramCheckout).then(resp => {
+                axios.post(`http://localhost:8080/api/apiTimeKeeps/checkin-checkout`, paramCheckout).then(resp => {
                     if (resp?.status === 200) {
                         setIsCheckin(true);
                         toast.success('Check out success');

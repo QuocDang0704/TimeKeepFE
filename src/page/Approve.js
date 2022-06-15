@@ -26,7 +26,7 @@ const Approve = () => {
             window.location = '/';
             return;
         }
-        axios.get(`http://localhost:8080/permit/permits`).then(resp => {
+        axios.get(`http://localhost:8080/api/permit/permits`).then(resp => {
             if (resp?.status === 200) {
                 const tmpLstDataApprove = resp?.data ? resp.data : [];
                 setLstDataApprove(tmpLstDataApprove);
@@ -104,10 +104,10 @@ const Approve = () => {
             note: note,
             status: Number(statusUpdate)
         };
-        axios.put(`http://localhost:8080/permit/approve`, paramPut).then(resp => {
+        axios.put(`http://localhost:8080/api/permit/approve`, paramPut).then(resp => {
             if (resp?.status === 200) {
                 toast.success('Update permit success');
-                axios.get(`http://localhost:8080/permit/permits`).then(resp => {
+                axios.get(`http://localhost:8080/api/permit/permits`).then(resp => {
                     if (resp?.status === 200) {
                         const tmpLstDataApprove = resp?.data ? resp.data : [];
                         setLstDataApprove(tmpLstDataApprove);
@@ -201,7 +201,7 @@ const Approve = () => {
     const handleSearch = () => {
         if (idStatusSearch !== '') {
             setPageCurr(1);
-            axios.get(`http://localhost:8080/permit/permits/status?status=${Number(idStatusSearch)}`).then(resp => {
+            axios.get(`http://localhost:8080/api/permit/permits/status?status=${Number(idStatusSearch)}`).then(resp => {
                 if (resp?.status === 200) {
                     const tmpLstDataApprove = resp?.data ? resp.data : [];
                     setLstDataApprove(tmpLstDataApprove);
@@ -211,7 +211,7 @@ const Approve = () => {
             }).catch(error => console.log('Error get approve search'));
         }
         else {
-            axios.get(`http://localhost:8080/permit/permits`).then(resp => {
+            axios.get(`http://localhost:8080/api/permit/permits`).then(resp => {
                 if (resp?.status === 200) {
                     const tmpLstDataApprove = resp?.data ? resp.data : [];
                     setLstDataApprove(tmpLstDataApprove);

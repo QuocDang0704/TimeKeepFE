@@ -10,7 +10,7 @@ const Login = () => {
             email: res?.profileObj?.email,
             image: res?.profileObj?.imageUrl,
         };
-        axios.post(`http://localhost:8080/api/login/socialmediaData`, googleresponse).then(resp => {
+        axios.post(`http://localhost:8080/apiV1/login/socialmediaData`, googleresponse).then(resp => {
             if (resp?.status === 200) {
                 const positionId = resp?.data?.idPosition ? resp?.data?.idPosition : '';
                 const idStaff = resp?.data?.id ? resp?.data?.id : '';
